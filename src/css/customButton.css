@@ -1,0 +1,45 @@
+.custom-button {
+  border: none;
+  padding: 5px;
+  background-color: transparent;
+  border-radius: 50%;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.custom-button:hover {
+  background-color: #d1d1d1;
+}
+
+.custom-button-img {
+  pointer-events: none;
+}
+
+.custom-button:disabled:hover {
+  background-color: transparent;
+}
+
+.custom-button.eye {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  position: relative;
+  padding: 3px;
+}
+
+.custom-button.eye:not(.active)::before {
+  display: block;
+}
+
+.custom-button.eye::before {
+  display: none;
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 2px;
+  background-color: black;
+  top: 0;
+  right: 50%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}

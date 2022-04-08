@@ -1,0 +1,60 @@
+.btn {
+  &-login {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #ffff;
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+    &:hover {
+      background-color: rgb(238, 232, 232);
+    }
+  }
+  &-icon {
+    max-width: 30px;
+    max-height: 30px;
+  }
+  &-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+}
+@media (max-width: 400px) {
+    .btn {
+        &-icon {
+          max-width: 15px;
+        }
+        &-login {
+          padding: 12px 6px;
+        }
+        &-text {
+          font-size: 14px;
+          padding: 5px 0;
+          transform: translateX(-40%);
+        }
+        &-icon {
+          max-width: 25px;
+        }
+      }
+}
+@media (max-width: 260px) {
+    .btn-text {
+      margin-left: 5px;
+      font-size: 12px;
+      padding: 0;
+      position: relative;
+      left: 0;
+      transform: translateX(0);
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }

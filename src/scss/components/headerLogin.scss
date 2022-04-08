@@ -1,0 +1,35 @@
+.header__login {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 56px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.bottom {
+    margin: 15px 0;
+  }
+  &-icon {
+    max-width: 50px;
+    max-height: 50px;
+  }
+  &-text {
+    font-size: 36px;
+    color: #000000;
+  }
+}
+.description {
+  font-size: 12px;
+  text-align: center;
+  color: #6b778c;
+  line-height: 17px;
+}
+@media (max-width: 360px) {
+  .logo-icon {
+    max-width: 30px;
+  }
+  .logo-text {
+    font-size: 25px;
+  }
+}

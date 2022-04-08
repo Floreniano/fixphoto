@@ -1,0 +1,36 @@
+.resetPas {
+  height: 100vh;
+  padding-top: 13px;
+}
+
+.btn-reset {
+  font-size: 14px;
+  white-space: nowrap;
+  margin-top: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.help {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #5E6C84;
+  white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+  .btn-reset {
+    font-size: 14px;
+    white-space: normal;
+    max-height: 100%;
+    line-height: 22px;
+    padding: 8px 5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .help {
+    white-space: normal;
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Шар 2020",
+    "key": "OBJ2020",
+    "type": "День города",
+    "author": "Arthur Alikberov"
+  },
+  {
+    "name": "Музыкальный лес",
+    "key": "MUSF",
+    "type": "Объект1",
+    "author": "Arthur Alikberov"
+  },
+  {
+    "name": "Склад Северский",
+    "key": "SFSEV",
+    "type": "Объект2",
+    "author": "Arthur Alikberov"
+  },
+  {
+    "name": "Склад Северский",
+    "key": "SFSEV",
+    "type": "Горка",
+    "author": "Arthur Alikberov"
+  }
+]

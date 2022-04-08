@@ -1,0 +1,37 @@
+.custom-button {
+  border: none;
+  padding: 5px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    background-color: #d1d1d1;
+  }
+  &-img {
+    pointer-events: none;
+  }
+  &:disabled:hover {
+    background-color: transparent;
+  }
+  &.eye {
+    align-self: center;
+    position: relative;
+    padding: 3px;
+    &:not(.active) {
+      &::before {
+        display: block;
+      }
+    }
+    &::before {
+      display: none;
+      position: absolute;
+      content: '';
+      height: 100%;
+      width: 2px;
+      background-color: black;
+      top: 0;
+      right: 50%;
+      transform: rotate(45deg);
+    }
+  }
+}

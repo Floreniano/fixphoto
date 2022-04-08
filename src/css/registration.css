@@ -1,0 +1,24 @@
+.signUp {
+  height: 100vh;
+  padding-top: 13px;
+}
+
+.registration-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.sign-text.registration {
+  margin-bottom: 27px;
+}
+
+.btn-registration {
+  margin-top: 37px;
+}
+
+@media (max-width: 360px) {
+  .sign-text.registration {
+    font-size: 14px;
+  }
+}

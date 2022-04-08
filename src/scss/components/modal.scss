@@ -1,0 +1,21 @@
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 25px;
+  right: 35px;
+  background-color: #75a712d4;
+  color: #ffff;
+  padding: 10px;
+  border-radius: 3px;
+  transform: scale(0);
+  transition: all 0.4s ease-in-out;
+  z-index: 1000;
+  &.active {
+    transform: scale(1);
+  }
+  &.error {
+    background-color: #eb0808d4;
+  }
+}

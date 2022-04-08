@@ -1,0 +1,27 @@
+@import url('reset.css');
+@import url('default.css');
+@import url('allAuthPages.css');
+/* fonts */
+
+/* libs */
+
+@import url('slick.css');
+@import url('materialdesignicons.css');
+/* components */
+
+@import url('customButton.css');
+@import url('customPopup.css');
+@import url('footerLogin.css');
+@import url('headerLogin.css');
+@import url('loginItem.css');
+@import url('header.css');
+@import url('modal.css');
+@import url('preloader.css');
+@import url('filterBtn.css');
+/* pages */
+
+@import url('authorization.css');
+@import url('registration.css');
+@import url('resetPass.css');
+@import url('objects.css');
+@import url('viewImages.css');
