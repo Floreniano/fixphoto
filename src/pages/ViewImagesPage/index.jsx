@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { request } from 'request';
-import dateFormat from 'dateformat';
 
 // libs
 import classNames from 'classnames';
@@ -9,6 +8,7 @@ import DatePicker from 'react-datepicker';
 import DateFnsUtils from '@date-io/date-fns';
 import ru from 'date-fns/locale/ru';
 import { TimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import dateFormat from 'dateformat';
 import Popup from 'reactjs-popup';
 import LazyLoad from 'react-lazyload';
 

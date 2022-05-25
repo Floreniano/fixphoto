@@ -1,0 +1,119 @@
+.tasks_content {
+  max-width: 1730px;
+  margin: 70px auto 0 auto;
+  padding: 0 10px;
+}
+
+.tasks__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 24px;
+}
+
+.tasks__top-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 30px;
+}
+
+.object_create-input.textarea {
+  height: 100px;
+}
+
+.object_create-item.select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.object_create-item.select .react-datepicker-wrapper .react-datepicker__input-container .date-picker {
+  padding: 0;
+  border-bottom: 1px solid #000;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.object_create-text {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  font-size: 14px;
+}
+
+.object_create-text.time div {
+  height: 31px;
+}
+
+.object_create-input.select {
+  min-height: 22px;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+  font-size: inherit;
+}
+
+.object_create-input.select span {
+  font-size: 16px;
+  margin-left: 3px;
+}
+
+.object_create-input.select span.select-content {
+  margin-left: 0;
+}
+
+.object_create-input-list {
+  position: absolute;
+  left: 0;
+  top: 30px;
+  background-color: #ffff;
+  z-index: 2;
+  cursor: default;
+  display: none;
+  overflow-y: auto;
+  width: 100%;
+  max-height: 350px;
+}
+
+.object_create-input-list-item {
+  text-align: left;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.object_create-input-list-item:hover {
+  background-color: #d6d6d6;
+}
+
+.object_create-input-list.active {
+  display: block;
+}
+
+.popup-content {
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.MuiInputBase-input {
+  padding: 0 !important;
+  border-bottom: 1px solid #000 !important;
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+}

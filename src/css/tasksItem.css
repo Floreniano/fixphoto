@@ -1,0 +1,15 @@
+.table-item-text.status > span.red {
+  color: #f44336 !important;
+}
+
+.table-item-text.status > span.orange {
+  color: #ff9800 !important;
+}
+
+.table-item-text.description {
+  text-align: left;
+}
+
+.table-tasks {
+  min-width: 800px;
+}

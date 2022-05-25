@@ -99,17 +99,7 @@ export default function Header() {
           </ul>
           {/* <button className='btn header-btn'>Новая задача</button> */}
         </div>
-        <div className='header__inner-right'>
-          {/* <button className='btn header-btn'>
-            <span>Новая задача</span>
-            <svg width='24' height='24' viewBox='0 0 24 24'>
-              <path
-                d='M13 11V7a1 1 0 00-2 0v4H7a1 1 0 000 2h4v4a1 1 0 002 0v-4h4a1 1 0 000-2h-4z'
-                fill='currentColor'
-                fillRule='evenodd'
-              ></path>
-            </svg>
-          </button> */}
+        {/* <div className='header__inner-right'>
           <button className='header-notifications'>
             <img className='header-notifications-icon' src={notifications} alt='Уведомления'></img>
             <img
@@ -121,7 +111,7 @@ export default function Header() {
           <Link className='header-profile' to='/cabinet'>
             АА
           </Link>
-        </div>
+        </div> */}
       </div>
       <div
         onClick={() => setMenuActive(false)}

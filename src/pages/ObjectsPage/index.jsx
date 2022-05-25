@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 // components
 import Header from 'components/Header';
-import ObjectItem from './components/ObjectItem';
 import Popup from 'reactjs-popup';
+import ObjectItem from './components/ObjectItem';
+import ModalPrompt from 'components/ModalPrompt';
 
 // assets
 import closePicture from 'assets/img/close-popup.png';
@@ -12,7 +13,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { dataFiltersObjects } from 'redux/actions/projectFilters';
 
 import { request } from 'request';
-import ModalPrompt from 'components/ModalPrompt';
 
 function ObjectPage() {
   const { projectFiltersObject } = useSelector(({ projectFiltersObject }) => {
@@ -84,35 +84,6 @@ function ObjectPage() {
   const deleteHandler = (id) => {
     request(`facility/${id}`, 'DELETE').then(() => dispatch(dataFiltersObjects()));
   };
-  // const firstRender = useRef(true);
-  // useEffect(() => {
-  // if (firstRender.current) {
-  //   firstRender.current = false;
-  //   return;
-  // }
-  // let filterProjects = [];
-  // let allFilters = Array.from(document.querySelectorAll('.types__list-input'));
-  // let counter = 0;
-  // for (let i = 0; i < allFilters.length; i++) {
-  //   const currentType = allFilters[i];
-  //   if (currentType.checked === true) {
-  //     for (let j = 0; j < dataProjects.length; j++) {
-  //       const projectsItem = dataProjects[j];
-  //       if (projectsItem.type === currentType.parentElement.innerText) {
-  //         filterProjects.push(projectsItem);
-  //       }
-  //     }
-  //   }
-  //   if (currentType.checked === false) {
-  //     counter++;
-  //   }
-  // }
-  // setObjects(filterProjects);
-  // if (counter === projectFiltersObject.length) {
-  //   setObjects(projectFiltersObject);
-  // }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [listFilters]);
 
   // Клик вне элмента
   const useOnClickOutside = (ref, handler) => {
@@ -157,7 +128,7 @@ function ObjectPage() {
         <div className='projects__top'>
           <h1 className='title'>Объекты</h1>
           <div className='projects__top-right'>
-            <button className='btn create-post' onClick={() => setOpen((o) => !o)}>
+            <button className='btn create-post' onClick={() => setOpen((e) => !e)}>
               Создать объект
             </button>
             <Popup className='popup_object' open={open} closeOnDocumentClick onClose={closeModal}>

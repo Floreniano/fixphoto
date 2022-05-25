@@ -25,7 +25,9 @@ a {
     min-height: 100%;
   }
 }
-
+textarea {
+  resize: none;
+}
 .btn {
   width: 100%;
   color: #ffff;
@@ -38,10 +40,14 @@ a {
   transition: background-color 0.3s ease-in-out;
   border: none;
   &:hover {
-    background-color: #2e679c;
+    background-color: #02519b;
   }
   &::placeholder {
     font-size: 16px;
+  }
+  &.disabled {
+    background-color: #d1d1d1;
+    color: #000000;
   }
 }
 .input {
