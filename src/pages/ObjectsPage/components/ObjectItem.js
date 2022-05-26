@@ -107,7 +107,7 @@ export default function ProjectItem({ object, onDelete }) {
               <button className='closed' onClick={closeModal}>
                 <img src={closePicture} alt='close'></img>
               </button>
-              <h2 className='popup_object-title'>Новый объект</h2>
+              <h2 className='popup_object-title'>Текущий объект</h2>
               <div className='object_create'>
                 <div className='object_create-item'>
                   <input

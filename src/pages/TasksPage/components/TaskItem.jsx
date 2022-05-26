@@ -196,7 +196,7 @@ export default function TaskItem({
                 >
                   <img src={closePicture} alt='close'></img>
                 </button>
-                <h2 className='popup_object-title'>Новый объект</h2>
+                <h2 className='popup_object-title'>Текущая задачу</h2>
                 <div className='object_create'>
                   <div className='object_create-item'>
                     <textarea

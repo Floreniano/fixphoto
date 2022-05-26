@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // assets
-import notifications from 'assets/img/notifications.svg';
-import notificationsActive from 'assets/img/notifications-active.svg';
+// import notifications from 'assets/img/notifications.svg';
+// import notificationsActive from 'assets/img/notifications-active.svg';
 
 export default function Header() {
   const [menuActive, setMenuActive] = useState(false);
