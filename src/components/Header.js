@@ -17,7 +17,7 @@ export default function Header() {
           >
             <span></span>
           </div>
-          <Link className='header-logo' to='/projects'>
+          <Link className='header-logo' to='/objects'>
             <svg
               className='header-logo-icon'
               width='20'
@@ -53,7 +53,7 @@ export default function Header() {
         </div>
 
         <div className={`header__inner-left ${menuActive ? 'active' : ''}`}>
-          <Link className='header-logo' to='/projects'>
+          <Link className='header-logo' to='/objects'>
             <svg
               className='header-logo-icon'
               width='20'
@@ -96,22 +96,14 @@ export default function Header() {
             <li className='header__list-item'>
               <Link to='/view'>Фотографии</Link>
             </li>
+            <li className='header__list-item'>
+              <Link to='/reports'>Отчеты</Link>
+            </li>
+            <li className='header__list-item'>
+              <Link to='/performers'>Исполнители</Link>
+            </li>
           </ul>
-          {/* <button className='btn header-btn'>Новая задача</button> */}
         </div>
-        {/* <div className='header__inner-right'>
-          <button className='header-notifications'>
-            <img className='header-notifications-icon' src={notifications} alt='Уведомления'></img>
-            <img
-              className='header-notifications-active'
-              src={notificationsActive}
-              alt='Уведомления'
-            ></img>
-          </button>
-          <Link className='header-profile' to='/cabinet'>
-            АА
-          </Link>
-        </div> */}
       </div>
       <div
         onClick={() => setMenuActive(false)}

@@ -37,7 +37,7 @@
   background-color: #3a7fc1;
   white-space: nowrap;
   font-size: 14px;
-  max-width: 120px;
+  max-width: 160px;
 }
 
 .title {
@@ -251,11 +251,14 @@
 
 .table-item .info .info_buttons {
   position: absolute;
-  left: -70px;
+  left: -75px;
   background-color: #ffff;
   border-radius: 10px 0px 0px 10px;
   border: 1px solid black;
   padding: 1px 5px 1px 5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .table-item .info .info_buttons.none {
@@ -266,24 +269,23 @@
   position: relative;
   background-color: transparent;
   border-style: none;
-  padding: 2px;
+  padding: 0 10px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   border-radius: 50%;
 }
 
-.table-item .info .info_buttons-delete::before {
-  content: '\F01B4';
-  display: inline-block;
-  font: normal normal normal 24px/1 'Material Design Icons';
-  font-size: inherit;
-  text-rendering: auto;
-  line-height: inherit;
-  -webkit-font-smoothing: antialiased;
-}
-
 .table-item .info .info_buttons-delete:hover {
   background-color: #a2a3a5;
+}
+
+.table-item .info .info_buttons-delete-img {
+  width: 20px;
+  height: 20px;
+}
+
+.table-item .info .info_buttons-delete.back {
+  padding: 2px;
 }
 
 .table-item .info .info_buttons-edit {
@@ -297,18 +299,33 @@
   border-radius: 50%;
 }
 
-.table-item .info .info_buttons-edit::before {
-  content: '\F03EB';
-  display: inline-block;
-  font: normal normal normal 24px/1 'Material Design Icons';
-  font-size: inherit;
-  text-rendering: auto;
-  line-height: inherit;
-  -webkit-font-smoothing: antialiased;
-}
-
 .table-item .info .info_buttons-edit:hover {
   background-color: #a2a3a5;
+}
+
+.table-item .info .info_buttons-edit-img {
+  width: 20px;
+  height: 20px;
+}
+
+.table-item .info .info_buttons-download {
+  position: relative;
+  background-color: transparent;
+  border-style: none;
+  padding: 0 10px;
+  margin-left: 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+}
+
+.table-item .info .info_buttons-download:hover {
+  background-color: #a2a3a5;
+}
+
+.table-item .info .info_buttons-download-img {
+  width: 20px;
+  height: 20px;
 }
 
 .not-found {

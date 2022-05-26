@@ -48,6 +48,19 @@
   border-radius: 0;
 }
 
+.not-found.list {
+  margin-top: 15px;
+}
+
+.filters.list {
+  width: 100%;
+}
+
+.filters.list .search {
+  width: 100%;
+  margin: 5px;
+}
+
 .object_create-text {
   -ms-flex-item-align: start;
       align-self: flex-start;

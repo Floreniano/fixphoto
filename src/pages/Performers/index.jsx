@@ -3,39 +3,25 @@ import classNames from 'classnames';
 // components
 import Header from 'components/Header';
 import Popup from 'reactjs-popup';
-import ObjectItem from './components/ObjectItem';
+import PerformerItem from './components/PerformerItem';
 import ModalPrompt from 'components/ModalPrompt';
 
 // assets
 import closePicture from 'assets/img/close-popup.png';
 
-// redux
-import { useSelector, useDispatch } from 'react-redux';
-import { dataFiltersObjects } from 'redux/actions/projectFilters';
-
 import { request } from 'request';
 
 function ObjectPage() {
-  const { projectFiltersObject } = useSelector(({ projectFiltersObject }) => {
-    return {
-      projectFiltersObject: projectFiltersObject.projectObject,
-    };
-  });
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(dataFiltersObjects());
-  }, [dispatch]);
-
-  const [objects, setObjects] = useState([]);
-  const [openAutocomplete, setOpenAutocomplete] = useState(false);
+  const [performers, setPerformers] = useState([]);
   const [valueSearch, setValueSearch] = useState('');
 
-  // Создание объекта
-  const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
-  const [code, setCode] = useState('');
-  const [contract, setContract] = useState('');
-  const [count, setCount] = useState(1);
+  // Создание исполнителя
+  const [description, setDescription] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
 
   const [open, setOpen] = useState(false);
   const [modalActive, setModalActive] = useState(false);
@@ -43,37 +29,51 @@ function ObjectPage() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    setObjects(projectFiltersObject);
-  }, [projectFiltersObject]);
+    request('performers', 'GET').then((data) => setPerformers(data));
+  }, []);
 
   const closeModal = () => setOpen(false);
   const saveHandler = () => {
     if (
-      name.length > 0 &&
-      address.length > 0 &&
-      code.length > 0 &&
-      contract.length > 0 &&
-      count > 0
+      description.length > 0 &&
+      firstName.length > 0 &&
+      lastName.length > 0 &&
+      login.length > 0 &&
+      password.length > 0 &&
+      repeatPassword === password
     ) {
-      const attributes = {};
-      request('facility', 'POST', { address, attributes, code, contract, count, name }).then(() =>
-        dispatch(dataFiltersObjects()),
+      request('performers', 'POST', { description, firstName, lastName, login, password }).then(
+        (data) => {
+          if (data !== undefined) {
+            setModalText('Ошибка, введены некорректные значения');
+            setError('error');
+            setModalActive(true);
+            setTimeout(() => {
+              setModalActive(false);
+            }, 1500);
+            return;
+          } else {
+            request('performers', 'GET').then((data) => {
+              setPerformers(data);
+            });
+          }
+        },
       );
-      setName('');
-      setAddress('');
-      setCode('');
-      setContract('');
-      setCount(1);
-      setOpen(false);
+      setDescription('');
+      setFirstName('');
+      setLastName('');
+      setLogin('');
+      setPassword('');
+      setRepeatPassword('');
 
-      setModalText('Объект сохранен');
+      setModalText('Исполнитель сохранен');
       setError('');
       setModalActive(true);
       setTimeout(() => {
         setModalActive(false);
       }, 1500);
     } else {
-      setModalText('Ошибка, заполнены не все поля');
+      setModalText('Ошибка, введены некорректные значения');
       setError('error');
       setModalActive(true);
       setTimeout(() => {
@@ -83,68 +83,43 @@ function ObjectPage() {
   };
 
   const deleteHandler = (id) => {
-    request(`facility/${id}`, 'DELETE').then(() => dispatch(dataFiltersObjects()));
-  };
-
-  // Клик вне элмента
-  const useOnClickOutside = (ref, handler) => {
-    useEffect(() => {
-      const listener = (event) => {
-        if (!ref.current || ref.current.contains(event.target)) {
-          return;
-        }
-        handler(event);
-      };
-      document.addEventListener('mousedown', listener);
-      document.addEventListener('touchstart', listener);
-      return () => {
-        document.removeEventListener('mousedown', listener);
-        document.removeEventListener('touchstart', listener);
-      };
-    }, [ref, handler]);
+    request(`performers/${id}`, 'DELETE').then(() =>
+      request('performers', 'GET').then((data) => {
+        setPerformers(data);
+      }),
+    );
   };
 
   const menuSearchRef = useRef();
-  useOnClickOutside(menuSearchRef, () => setOpenAutocomplete(false));
 
   // Поиск
-  const searchClickHandler = (e) => {
-    setValueSearch(e.target.textContent);
-    setOpenAutocomplete(!openAutocomplete);
-  };
-  const autocompleteClickHandler = () => {
-    setOpenAutocomplete(true);
-  };
-
-  const searchObjects = objects.filter(
-    (project) =>
-      project.name.toLowerCase().includes(valueSearch.toLowerCase()) ||
-      project.code.toLowerCase().includes(valueSearch.toLowerCase()),
+  const searchPerformers = performers.filter((performer) =>
+    performer.firstName.toLowerCase().includes(valueSearch.toLowerCase()),
   );
 
   return (
-    <section className='objects'>
+    <section className='performers'>
       <Header />
       <div className='projects__content'>
         <div className='projects__top'>
-          <h1 className='title'>Объекты</h1>
+          <h1 className='title'>Исполнители</h1>
           <div className='projects__top-right'>
             <button className='btn create-post' onClick={() => setOpen((e) => !e)}>
-              Создать объект
+              Создать исполнителя
             </button>
             <Popup className='popup_object' open={open} closeOnDocumentClick onClose={closeModal}>
               <div className='popup'>
                 <button className='closed' onClick={closeModal}>
                   <img src={closePicture} alt='close'></img>
                 </button>
-                <h2 className='popup_object-title'>Новый объект</h2>
+                <h2 className='popup_object-title'>Новый исполнитель</h2>
                 <div className='object_create'>
                   <div className='object_create-item'>
                     <input
                       className='object_create-input'
                       type='text'
-                      onChange={(e) => setName(e.target.value)}
-                      value={name}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      value={firstName}
                       required
                     />
                     <label className='object_create-label'>Имя</label>
@@ -153,57 +128,69 @@ function ObjectPage() {
                     <input
                       className='object_create-input'
                       type='text'
-                      onChange={(e) => setContract(e.target.value)}
-                      value={contract}
+                      onChange={(e) => setLastName(e.target.value)}
+                      value={lastName}
                       required
                     />
-                    <label className='object_create-label'>Адрес</label>
+                    <label className='object_create-label'>Фамилия</label>
                   </div>
                   <div className='object_create-item'>
                     <input
                       className='object_create-input'
                       type='text'
-                      onChange={(e) => setAddress(e.target.value)}
-                      value={address}
+                      onChange={(e) => setLogin(e.target.value)}
+                      value={login}
                       required
                     />
-                    <label className='object_create-label'>Код объекта</label>
+                    <label className='object_create-label'>Логин</label>
+                  </div>
+                  <div className='object_create-item'>
+                    <input
+                      className='object_create-input'
+                      type='password'
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
+                      required
+                    />
+                    <label className='object_create-label'>Пароль</label>
+                  </div>
+                  <div className='object_create-item'>
+                    <input
+                      className='object_create-input'
+                      type='password'
+                      onChange={(e) => setRepeatPassword(e.target.value)}
+                      value={repeatPassword}
+                      required
+                    />
+                    <label className='object_create-label'>Повторите пароль</label>
                   </div>
                   <div className='object_create-item'>
                     <input
                       className='object_create-input'
                       type='text'
-                      onChange={(e) => setCode(e.target.value)}
-                      value={code}
+                      onChange={(e) => setDescription(e.target.value)}
+                      value={description}
                       required
                     />
-                    <label className='object_create-label'>Договор</label>
-                  </div>
-                  <div className='object_create-item'>
-                    <input
-                      className='object_create-input'
-                      type='text'
-                      onChange={(e) => setCount(e.target.value)}
-                      value={count}
-                      required
-                    />
-                    <label className='object_create-label'>Количество</label>
+                    <label className='object_create-label'>Описание</label>
                   </div>
                   <button
                     className={classNames('btn', {
                       disabled:
-                        Number(count) < 0 ||
-                        name.length <= 0 ||
-                        address.length <= 0 ||
-                        code.length <= 0 ||
-                        contract.length <= 0,
+                        firstName.length <= 0 ||
+                        lastName.length <= 0 ||
+                        login.length <= 0 ||
+                        password.length <= 0 ||
+                        repeatPassword.length <= 0 ||
+                        description.length <= 0,
                     })}
                     disabled={
-                      Number(count) < 0 ||
-                      name.length <= 0 ||
-                      address.length <= 0 ||
-                      code.length <= 0 ||
-                      contract.length <= 0
+                      firstName.length <= 0 ||
+                      lastName.length <= 0 ||
+                      login.length <= 0 ||
+                      password.length <= 0 ||
+                      repeatPassword.length <= 0 ||
+                      description.length <= 0
                     }
                     onClick={saveHandler}
                   >
@@ -220,7 +207,6 @@ function ObjectPage() {
             <input
               className='input search-input'
               onChange={(e) => setValueSearch(e.target.value)}
-              onClick={autocompleteClickHandler}
               value={valueSearch}
               type='text'
               placeholder='Поиск'
@@ -241,35 +227,28 @@ function ObjectPage() {
                 />
               </svg>
             </div>
-            <ul className='search__autocomplete'>
-              {valueSearch && openAutocomplete
-                ? searchObjects.map((objectItem, index) => (
-                    <li
-                      key={index}
-                      className='search__autocomplete-item'
-                      onClick={searchClickHandler}
-                    >
-                      {objectItem.name}
-                    </li>
-                  ))
-                : null}
-            </ul>
           </div>
         </div>
-        {searchObjects.length !== 0 ? (
+        {searchPerformers.length !== 0 ? (
           <div className='table-scroll'>
             <table className='table'>
               <thead>
                 <tr>
-                  <th className='table-title table-name'>Имя объекта</th>
-                  <th className='table-title table-key'>Код объекта</th>
-                  <th className='table-title table-type'>Адрес</th>
+                  <th className='table-title table-name'>ФИО</th>
+                  <th className='table-title table-login'>Логин</th>
                   <th className='table-title table-info'></th>
                 </tr>
               </thead>
               <tbody>
-                {searchObjects.map((objectItem, index) => (
-                  <ObjectItem key={index} object={objectItem} onDelete={deleteHandler} />
+                {searchPerformers.map((performerItem, index) => (
+                  <PerformerItem
+                    key={index}
+                    performer={performerItem}
+                    onDelete={deleteHandler}
+                    login={performerItem.login}
+                    password={performerItem.password}
+                    setPerformers={setPerformers}
+                  />
                 ))}
               </tbody>
             </table>

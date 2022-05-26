@@ -1,0 +1,10 @@
+.table-item .info.reports {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 42px;
+}
+
+.table.reports {
+  min-width: 600px;
+}

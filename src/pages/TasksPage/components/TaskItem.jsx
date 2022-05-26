@@ -14,6 +14,8 @@ import ModalPrompt from 'components/ModalPrompt';
 
 // assets
 import closePicture from 'assets/img/close-popup.png';
+import deleteImg from 'assets/img/delete.png';
+import editImg from 'assets/img/edit.png';
 
 // redux
 import { useSelector } from 'react-redux';
@@ -174,17 +176,21 @@ export default function TaskItem({
       </td>
       <td className='table-item-text description'>{task.description}</td>
       <td className='table-item-text executionTime'>
-        {console.log(task.executionTime)}
-        {dateFormat(task.executionTime, 'yyyy-mm-dd hh:mm:ss')}
+        {console.log(dateFormat(task.executionTime, 'yyyy-mm-dd HH:MM:ss'))}
+        {dateFormat(task.executionTime, 'yyyy-mm-dd HH:MM:ss')}
       </td>
       <td className='table-item-text completedExecutionTime'>
-        {dateFormat(task.completedExecutionTime, 'yyyy-mm-dd hh:mm:ss')}
+        {dateFormat(task.completedExecutionTime, 'yyyy-mm-dd HH:MM:ss')}
       </td>
       <td className='table-item-text status'>{status()}</td>
       <td className='info'>
         <div className={buttons ? 'info_buttons' : 'info_buttons none'} ref={buttonsRef}>
-          <button className='info_buttons-delete' onClick={deleteHandlerClick}></button>
-          <button className='info_buttons-edit' onClick={() => editHandler(task)}></button>
+          <button className='info_buttons-delete back' onClick={deleteHandlerClick}>
+            <img className='info_buttons-delete-img' src={deleteImg} alt='delete'></img>
+          </button>
+          <button className='info_buttons-edit' onClick={() => editHandler(task)}>
+            <img className='info_buttons-edit-img' src={editImg} alt='edit'></img>
+          </button>
           <Popup className='popup_object' open={open} modal nested onClose={closeModal}>
             {(close) => (
               <div className='popup'>

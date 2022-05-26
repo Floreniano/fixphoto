@@ -24,7 +24,7 @@
   background-color: #3a7fc1;
   white-space: nowrap;
   font-size: 14px;
-  max-width: 120px;
+  max-width: 160px;
 }
 .title {
   font-size: 22px;
@@ -177,11 +177,13 @@
       }
       .info_buttons {
         position: absolute;
-        left: -70px;
+        left: -75px;
         background-color: #ffff;
         border-radius: 10px 0px 0px 10px;
         border: 1px solid black;
         padding: 1px 5px 1px 5px;
+        top: 50%;
+        transform: translateY(-50%);
         &.none {
           display: none;
         }
@@ -189,20 +191,18 @@
           position: relative;
           background-color: transparent;
           border-style: none;
-          padding: 2px;
+          padding: 0 10px;
           transition: all 0.3s ease-in-out;
           border-radius: 50%;
-          &::before {
-            content: '\F01B4';
-            display: inline-block;
-            font: normal normal normal 24px/1 'Material Design Icons';
-            font-size: inherit;
-            text-rendering: auto;
-            line-height: inherit;
-            -webkit-font-smoothing: antialiased;
-          }
           &:hover {
             background-color: #a2a3a5;
+          }
+          &-img {
+            width: 20px;
+            height: 20px;
+          }
+          &.back {
+            padding: 2px;
           }
         }
         &-edit {
@@ -213,17 +213,28 @@
           margin-left: 10px;
           transition: all 0.3s ease-in-out;
           border-radius: 50%;
-          &::before {
-            content: '\F03EB';
-            display: inline-block;
-            font: normal normal normal 24px/1 'Material Design Icons';
-            font-size: inherit;
-            text-rendering: auto;
-            line-height: inherit;
-            -webkit-font-smoothing: antialiased;
-          }
           &:hover {
             background-color: #a2a3a5;
+          }
+          &-img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        &-download {
+          position: relative;
+          background-color: transparent;
+          border-style: none;
+          padding: 0 10px;
+          margin-left: 10px;
+          transition: all 0.3s ease-in-out;
+          border-radius: 50%;
+          &:hover {
+            background-color: #a2a3a5;
+          }
+          &-img {
+            width: 20px;
+            height: 20px;
           }
         }
       }

@@ -6,6 +6,8 @@ import AuthorizationPage from 'pages/AuthorizationPage/index';
 import ObjectPage from 'pages/ObjectsPage/';
 import ViewImagesPage from 'pages/ViewImagesPage/index';
 import TasksPage from 'pages/TasksPage/index';
+import ReportsPage from 'pages/ReportsPage';
+import PerformersPage from 'pages/Performers';
 
 export const useRoutes = (token) => {
   if (token) {
@@ -14,6 +16,8 @@ export const useRoutes = (token) => {
         <Route path='/objects' exact component={ObjectPage}></Route>
         <Route path='/tasks' exact component={TasksPage}></Route>
         <Route path='/view' exact component={ViewImagesPage}></Route>
+        <Route path='/reports' exact component={ReportsPage}></Route>
+        <Route path='/performers' exact component={PerformersPage}></Route>
         <Redirect to='/objects'></Redirect>
       </Switch>
     );
