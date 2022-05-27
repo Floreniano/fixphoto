@@ -13,7 +13,7 @@ export default function ReportItem({ report, onDelete, onDownload }) {
   };
 
   const downloadHandler = () => {
-    onDownload(report.id);
+    onDownload(report.id, report.name);
   };
 
   return (

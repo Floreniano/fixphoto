@@ -176,7 +176,6 @@ export default function TaskItem({
       </td>
       <td className='table-item-text description'>{task.description}</td>
       <td className='table-item-text executionTime'>
-        {console.log(dateFormat(task.executionTime, 'yyyy-mm-dd HH:MM:ss'))}
         {dateFormat(task.executionTime, 'yyyy-mm-dd HH:MM:ss')}
       </td>
       <td className='table-item-text completedExecutionTime'>

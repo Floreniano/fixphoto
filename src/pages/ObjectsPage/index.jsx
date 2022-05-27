@@ -47,7 +47,7 @@ function ObjectPage() {
   }, [projectFiltersObject]);
 
   const closeModal = () => setOpen(false);
-  const saveHandler = () => {
+  const saveHandler = async () => {
     if (
       name.length > 0 &&
       address.length > 0 &&
@@ -116,11 +116,13 @@ function ObjectPage() {
     setOpenAutocomplete(true);
   };
 
-  const searchObjects = objects.filter(
-    (project) =>
-      project.name.toLowerCase().includes(valueSearch.toLowerCase()) ||
-      project.code.toLowerCase().includes(valueSearch.toLowerCase()),
-  );
+  let searchObjects = [];
+  if (Array.isArray(objects))
+    searchObjects = objects.filter(
+      (project) =>
+        project.name.toLowerCase().includes(valueSearch.toLowerCase()) ||
+        project.code.toLowerCase().includes(valueSearch.toLowerCase()),
+    );
 
   return (
     <section className='objects'>

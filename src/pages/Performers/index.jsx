@@ -93,9 +93,13 @@ function ObjectPage() {
   const menuSearchRef = useRef();
 
   // Поиск
-  const searchPerformers = performers.filter((performer) =>
-    performer.firstName.toLowerCase().includes(valueSearch.toLowerCase()),
-  );
+  let searchPerformers = [];
+  if (Array.isArray(performers))
+    searchPerformers = performers.filter(
+      (performer) =>
+        performer.firstName.toLowerCase().includes(valueSearch.toLowerCase()) ||
+        performer.lastName.toLowerCase().includes(valueSearch.toLowerCase()),
+    );
 
   return (
     <section className='performers'>

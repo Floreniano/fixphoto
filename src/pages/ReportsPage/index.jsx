@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { saveAs } from 'file-saver';
 // components
 import Header from 'components/Header';
 import ReportItem from './components/ReportItem';
@@ -20,8 +21,24 @@ function ReportsPage() {
     );
   };
 
-  const downloadHandler = (id) => {
-    request(`reports/${id}`, 'GET').then((data) => {});
+  const downloadHandler = (id, name) => {
+    const url = `http://fixphoto.zodiak-elektro.ru/api/reports/${id}`;
+    const token = localStorage.getItem('token');
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(function (response) {
+        return response.blob();
+      })
+      .then(function (blob) {
+        saveAs(blob, name);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   // Клик вне элмента
@@ -53,9 +70,11 @@ function ReportsPage() {
   const autocompleteClickHandler = () => {
     setOpenAutocomplete(true);
   };
-  const searchReports = reports.filter((project) =>
-    project.name.toLowerCase().includes(valueSearch.toLowerCase()),
-  );
+  let searchReports = [];
+  if (Array.isArray(reports))
+    searchReports = reports.filter((project) =>
+      project.name.toLowerCase().includes(valueSearch.toLowerCase()),
+    );
 
   return (
     <section className='objects'>

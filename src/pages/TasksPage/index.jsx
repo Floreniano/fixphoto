@@ -68,6 +68,10 @@ function TasksPage() {
 
   const [tasks, setTasks] = useState([]);
 
+  // Поиск
+  const [valueSearch, setValueSearch] = useState('');
+  const [valueCurrentObject, setValueCurrentObject] = useState('');
+
   useEffect(() => {
     setObjects(projectFiltersObject);
   }, [projectFiltersObject]);
@@ -180,14 +184,17 @@ function TasksPage() {
   };
 
   // Поиск
-  const [valueSearch, setValueSearch] = useState('');
-  const [valueCurrentObject, setValueCurrentObject] = useState('');
-  const searchObjects = objects.filter((project) =>
-    project.name.toLowerCase().includes(valueSearch.toLowerCase()),
-  );
-  const searchCurrentObjects = objects.filter((project) =>
-    project.name.toLowerCase().includes(valueCurrentObject.toLowerCase()),
-  );
+
+  let searchObjects = [];
+  let searchCurrentObjects = [];
+  if (Array.isArray(objects))
+    searchObjects = objects.filter((project) =>
+      project.name.toLowerCase().includes(valueSearch.toLowerCase()),
+    );
+  if (Array.isArray(objects))
+    searchCurrentObjects = objects.filter((project) =>
+      project.name.toLowerCase().includes(valueCurrentObject.toLowerCase()),
+    );
   return (
     <section className='tasks'>
       <Header></Header>
@@ -315,15 +322,19 @@ function TasksPage() {
                             active: performerAtive,
                           })}
                         >
-                          {performers.map((item) => (
-                            <li
-                              key={item.id}
-                              className='object_create-input-list-item'
-                              onClick={() => executorClickHandler(item)}
-                            >
-                              {item.firstName} {item.lastName}
-                            </li>
-                          ))}
+                          {Array.isArray(performers) ? (
+                            performers.map((item) => (
+                              <li
+                                key={item.id}
+                                className='object_create-input-list-item'
+                                onClick={() => executorClickHandler(item)}
+                              >
+                                {item.firstName} {item.lastName}
+                              </li>
+                            ))
+                          ) : (
+                            <div className='not-found list'>Нет результатов</div>
+                          )}
                         </ul>
                       </div>
                     </div>
