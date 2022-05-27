@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/fixphoto/viewer/static/css/main.146eb204.chunk.css",
-    "main.js": "/fixphoto/viewer/static/js/main.0cd4bbf2.chunk.js",
-    "main.js.map": "/fixphoto/viewer/static/js/main.0cd4bbf2.chunk.js.map",
-    "runtime-main.js": "/fixphoto/viewer/static/js/runtime-main.e17bef55.js",
-    "runtime-main.js.map": "/fixphoto/viewer/static/js/runtime-main.e17bef55.js.map",
-    "viewer/static/css/2.ecdd39c8.chunk.css": "/fixphoto/viewer/static/css/2.ecdd39c8.chunk.css",
-    "viewer/static/js/2.3aa8ac7e.chunk.js": "/fixphoto/viewer/static/js/2.3aa8ac7e.chunk.js",
-    "viewer/static/js/2.3aa8ac7e.chunk.js.map": "/fixphoto/viewer/static/js/2.3aa8ac7e.chunk.js.map",
-    "index.html": "/fixphoto/index.html",
-    "viewer/static/css/2.ecdd39c8.chunk.css.map": "/fixphoto/viewer/static/css/2.ecdd39c8.chunk.css.map",
-    "viewer/static/css/main.146eb204.chunk.css.map": "/fixphoto/viewer/static/css/main.146eb204.chunk.css.map",
-    "viewer/static/js/2.3aa8ac7e.chunk.js.LICENSE.txt": "/fixphoto/viewer/static/js/2.3aa8ac7e.chunk.js.LICENSE.txt",
-    "viewer/static/media/index.css": "/fixphoto/viewer/static/media/materialdesignicons-webfont.a926f7aa.woff"
+    "main.css": "/viewer/static/css/main.d90e9cfe.chunk.css",
+    "main.js": "/viewer/static/js/main.0cd4bbf2.chunk.js",
+    "main.js.map": "/viewer/static/js/main.0cd4bbf2.chunk.js.map",
+    "runtime-main.js": "/viewer/static/js/runtime-main.f505d10c.js",
+    "runtime-main.js.map": "/viewer/static/js/runtime-main.f505d10c.js.map",
+    "viewer/static/css/2.ecdd39c8.chunk.css": "/viewer/static/css/2.ecdd39c8.chunk.css",
+    "viewer/static/js/2.3aa8ac7e.chunk.js": "/viewer/static/js/2.3aa8ac7e.chunk.js",
+    "viewer/static/js/2.3aa8ac7e.chunk.js.map": "/viewer/static/js/2.3aa8ac7e.chunk.js.map",
+    "index.html": "/index.html",
+    "viewer/static/css/2.ecdd39c8.chunk.css.map": "/viewer/static/css/2.ecdd39c8.chunk.css.map",
+    "viewer/static/css/main.d90e9cfe.chunk.css.map": "/viewer/static/css/main.d90e9cfe.chunk.css.map",
+    "viewer/static/js/2.3aa8ac7e.chunk.js.LICENSE.txt": "/viewer/static/js/2.3aa8ac7e.chunk.js.LICENSE.txt",
+    "viewer/static/media/index.css": "/viewer/static/media/materialdesignicons-webfont.a926f7aa.woff"
   },
   "entrypoints": [
-    "viewer/static/js/runtime-main.e17bef55.js",
+    "viewer/static/js/runtime-main.f505d10c.js",
     "viewer/static/css/2.ecdd39c8.chunk.css",
     "viewer/static/js/2.3aa8ac7e.chunk.js",
-    "viewer/static/css/main.146eb204.chunk.css",
+    "viewer/static/css/main.d90e9cfe.chunk.css",
     "viewer/static/js/main.0cd4bbf2.chunk.js"
   ]
 }
