@@ -1,7 +1,6 @@
 export async function request(url, method, body = null) {
   try {
     const token = localStorage.getItem('token');
-    console.log(url);
     const response = await fetch(`http://fixphoto.zodiak-elektro.ru/api/${url}`, {
       method,
       body: body === null ? null : JSON.stringify(body),
