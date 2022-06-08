@@ -51,7 +51,7 @@ export default function ProjectItem({ object, onDelete }) {
   const [modalActive, setModalActive] = useState(false);
   const [modalText, setModalText] = useState('');
   const [error, setError] = useState('');
-
+  console.log(object.address);
   const editHandler = (object) => {
     setOpen(true);
     setName(object.name);
@@ -134,7 +134,7 @@ export default function ProjectItem({ object, onDelete }) {
                     value={contract}
                     required
                   />
-                  <label className='object_create-label'>Адрес</label>
+                  <label className='object_create-label'>Договор</label>
                 </div>
                 <div className='object_create-item'>
                   <input
@@ -144,7 +144,7 @@ export default function ProjectItem({ object, onDelete }) {
                     value={address}
                     required
                   />
-                  <label className='object_create-label'>Код объекта</label>
+                  <label className='object_create-label'>Адрес</label>
                 </div>
                 <div className='object_create-item'>
                   <input
@@ -154,7 +154,7 @@ export default function ProjectItem({ object, onDelete }) {
                     value={code}
                     required
                   />
-                  <label className='object_create-label'>Договор</label>
+                  <label className='object_create-label'>Код объекта</label>
                 </div>
                 <div className='object_create-item'>
                   <input
