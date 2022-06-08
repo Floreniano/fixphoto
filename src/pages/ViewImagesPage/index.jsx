@@ -74,13 +74,6 @@ function ViewImagePage() {
     dispatch(dataFiltersObjects());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   localStorage.setItem(
-  //     'token',
-  //     'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsInVzZXJJZCI6MiwidHlwZSI6IlVTRVIiLCJleHAiOjE2NDE4OTc0MTJ9.Lun7fttQo-PK3ummO5XbeLsaI5WWw9uJGiF7U6lEv6DysGGWJ_eeYxHlvSZXsvJmlPix39CLOPjxi3or7rptOw',
-  //   );
-  // }, []);
-
   // Фильтры
   const clickObjectsFilterHandler = () => {
     setMenuObjectsFilters(!menuObjectsFilters);

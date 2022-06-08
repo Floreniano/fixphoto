@@ -160,6 +160,7 @@ export default function TaskItem({
   const status = () => {
     if (task.status === 'EXPIRED') return <span className='red'>Просрочена</span>;
     if (task.status === 'WAITING') return <span className='orange'>Ожидание</span>;
+    if (task.status === 'COMPLETED') return <span className='green'>Завершена</span>;
   };
   const objectClickHandler = (item) => {
     setObject(item.name);

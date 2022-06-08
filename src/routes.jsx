@@ -7,7 +7,7 @@ import ObjectPage from 'pages/ObjectsPage/';
 import ViewImagesPage from 'pages/ViewImagesPage/index';
 import TasksPage from 'pages/TasksPage/index';
 import ReportsPage from 'pages/ReportsPage';
-import PerformersPage from 'pages/Performers';
+import PerformersPage from 'pages/PerformersPage';
 
 export const useRoutes = (token) => {
   if (token) {
